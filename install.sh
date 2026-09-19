@@ -14,7 +14,8 @@ apt-get update
 apt-get install -y bash coreutils findutils tar gzip openssh-client rsync sqlite3 util-linux iproute2 curl
 
 echo "[2/3] Downloading nova-migrate..."
-curl -fL --retry 3 --retry-delay 2 -o "$TMP_DIR/nova-migrate" "$REPO_RAW/nova-migrate"
+curl -fL --retry 3 --retry-delay 2 --connect-timeout 15 --max-time 120   -o "$TMP_DIR/nova-migrate" "$REPO_RAW/nova-migrate?version=1.0.0"
+test -s "$TMP_DIR/nova-migrate"
 chmod 0755 "$TMP_DIR/nova-migrate"
 install -m 0755 "$TMP_DIR/nova-migrate" /usr/local/sbin/nova-migrate
 
