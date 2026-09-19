@@ -50,7 +50,7 @@
 ### نصب یک‌خطی
 
 ~~~~bash
-curl -fsSL https://raw.githubusercontent.com/arsamnikzaad/nova-migrate/main/install.sh | bash
+curl -fsSL https://github.com/arsamnikzaad/nova-migrate/raw/refs/heads/main/install.sh | bash
 ~~~~
 
 ### نصب دستی
@@ -339,7 +339,7 @@ The installer installs the required command-line dependencies.
 ### One-line installation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/arsamnikzaad/nova-migrate/main/install.sh | bash
+curl -fsSL https://github.com/arsamnikzaad/nova-migrate/raw/refs/heads/main/install.sh | bash
 ```
 
 Or:
@@ -575,7 +575,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/IRNova/Nova-Server/main/nova
 ### 2. نصب nova-migrate
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/arsamnikzaad/nova-migrate/main/install.sh | bash
+curl -fsSL https://github.com/arsamnikzaad/nova-migrate/raw/refs/heads/main/install.sh | bash
 ```
 
 ### 3. ساخت Backup
