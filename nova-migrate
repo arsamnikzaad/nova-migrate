@@ -97,7 +97,7 @@ EOF
   mkdir -p "$dir"
   mv "$tmp"/* "$dir"/
   rmdir "$tmp"
-  (cd "$dir" && sha256sum * > SHA256SUMS)
+  (cd "$dir" && find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS)
   chmod 600 "$dir"/* "$dir"/systemd/* "$dir"/sysctl/* "$dir"/etc-extra/* 2>/dev/null || true
 
   for u in "${stop_units[@]}"; do systemctl start "$u" 2>/dev/null || true; done
