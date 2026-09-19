@@ -501,3 +501,109 @@ MIT License. See [LICENSE](LICENSE).
 ## Project
 
 GitHub: https://github.com/arsamnikzaad/nova-migrate
+
+---
+
+# 🔗 رابطه با پروژه اصلی Nova Server
+
+**nova-migrate یک ابزار جانبی برای پروژه اصلی Nova Server است و خود پنل Nova نیست.**
+
+پروژه اصلی:
+
+**IRNova/Nova-Server**
+
+https://github.com/IRNova/Nova-Server
+
+Nova Server یک پنل و Node Agent خودمیزبان برای مدیریت سرویس‌هایی مانند **Xray-core، sing-box، Hysteria2، WireGuard و AmneziaWG** است. پروژه اصلی همچنین قابلیت‌هایی مانند مدیریت چند Node، کاربران، Subscription، SSL و Telegram Bot/Mini App را ارائه می‌کند.
+
+این پروژه (`nova-migrate`) برای **Backup / Restore / Migration اطلاعات و State مربوط به نصب Nova Server** ساخته شده است.
+
+## این ابزار چه چیزی را مدیریت می‌کند؟
+
+```text
+IRNova/Nova-Server
+        │
+        ├── Nova Node Agent
+        ├── Nova database / state
+        ├── Xray
+        ├── sing-box
+        ├── Psiphon
+        ├── Tor
+        ├── Nova Geo services
+        ├── systemd services
+        └── Nova configuration
+                 │
+                 ▼
+             nova-migrate
+        Backup / Restore / Migration
+```
+
+### پروژه اصلی
+
+https://github.com/IRNova/Nova-Server
+
+### ابزار Migration
+
+https://github.com/arsamnikzaad/nova-migrate
+
+> **مهم:** `nova-migrate` جایگزین Nova Server نیست. ابتدا باید Nova Server یا یک نصب سازگار از Nova روی سرور مقصد وجود داشته باشد؛ سپس این ابزار State و Configuration را منتقل می‌کند.
+
+## 🧩 ارتباط با نسخه‌های Nova
+
+به دلیل اینکه ساختار فایل‌ها، سرویس‌ها و دیتابیس Nova ممکن است در نسخه‌های مختلف تغییر کند، قبل از Migration بین نسخه‌های متفاوت، سازگاری نسخه مقصد را بررسی کنید.
+
+برای بررسی وضعیت نصب:
+
+```bash
+nova-migrate doctor
+```
+
+برای دریافت و نصب خود Nova، همیشه به Repository رسمی پروژه مراجعه کنید:
+
+https://github.com/IRNova/Nova-Server
+
+## ⚡ مسیر پیشنهادی Nova + Migration
+
+### 1. نصب Nova Server
+
+طبق مستندات رسمی Nova:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/IRNova/Nova-Server/main/nova-node.sh)
+```
+
+### 2. نصب nova-migrate
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/arsamnikzaad/nova-migrate/main/install.sh | bash
+```
+
+### 3. ساخت Backup
+
+```bash
+nova-migrate backup
+```
+
+### 4. انتقال به سرور جدید
+
+```bash
+nova-migrate migrate root@NEW_SERVER_IP
+```
+
+### 5. بررسی مقصد
+
+```bash
+nova-migrate doctor
+```
+
+## ⚖️ Attribution
+
+Nova Server یک پروژه مستقل است که توسط **IRNova** نگهداری می‌شود.
+
+این Repository **Repository رسمی Nova Server نیست** و جایگزین آن نیست.
+
+Repository رسمی Nova Server:
+
+https://github.com/IRNova/Nova-Server
+
+برای دریافت نسخه‌های Nova، مستندات، Installerها و تغییرات پروژه اصلی، به Repository رسمی مراجعه کنید.
