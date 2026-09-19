@@ -1,0 +1,12 @@
+*.db
+*.sqlite
+*.sqlite3
+*.tar
+*.tar.gz
+*.zip
+/backup/
+/backups/
+/var/
+/.env
+*.key
+*.pem
